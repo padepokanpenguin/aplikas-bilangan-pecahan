@@ -18,43 +18,11 @@
     <main>
       <div>
         <input id="input" type="number" />
-        <button id="btn" onclick="clickMe()">generate</button>
+        <button id="btn">generate</button>
       </div>
 
       <p class="number-container"></p>
     </main>
-    <script>
-      const paragraph = document.querySelector(".number-container");
-      // const button = document.querySelector("#btn");
-
-      // button.addEventListener("click", () => {
-      //   this.clickMe(str);
-      // });
-
-      function clickMe() {
-        const str = document.querySelector("#input").value;
-
-        if (!str.includes(0)) {
-          const sNumber = str.toString();
-
-          const temp = [];
-          const res = [];
-
-          for (let i = 0; i < sNumber.length; i++) {
-            temp.push(+sNumber.charAt(i));
-          }
-          console.log(temp);
-          let n = sNumber.length - 1;
-          for (const number of temp) {
-            res.push(number * (10 ** n));
-            n--;
-          }
-          console.log(res);
-          paragraph.innerHTML = res;
-        } else {
-          alert("jangan  masukkan angka 0");
-        }
-      }
-    </script>
+    <script src="./script.js"></script>
   </body>
 </html>

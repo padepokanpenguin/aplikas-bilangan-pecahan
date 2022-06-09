@@ -1,27 +1,30 @@
 const paragraph = document.querySelector(".number-container");
 const button = document.querySelector("#btn");
-const inputValue = document.querySelector("#input").value;
 
-button.addEventListener("click", splitNumber);
+button.addEventListener("click", () => {
+  clickMe();
+});
 
-console.log(inputValue)
-function splitNumber(inputValue) {
-  const sNumber = inputValue.toString();
-  const temp = [];
-  const result = [];
+function clickMe() {
+  const str = document.querySelector("#input").value;
 
-  for (let i = 0; i < sNumber.length; i++) {
-    temp.push(+sNumber.charAt(i));
+  if (!str.includes(0)) {
+    const sNumber = str.toString();
+
+    const temp = [];
+    const res = [];
+
+    for (let i = 0; i < sNumber.length; i++) {
+      temp.push(+sNumber.charAt(i));
+    }
+    let n = sNumber.length - 1;
+    for (const number of temp) {
+      res.push(number * 10 ** n);
+      n--;
+    }
+
+    paragraph.innerHTML = res;
+  } else {
+    alert("jangan  masukkan angka 0");
   }
-
-  let n = sNumber.length - 1;
-  console.log(inputValue);
-  for (const number of temp) {
-    result.push(+number * Math.pow(10, n));
-    n--;
-  }
-  paragraph.innerHTML = result;
-  console.log(result);
 }
-
-// splitNumber(23567);
