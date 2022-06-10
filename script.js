@@ -1,30 +1,36 @@
-const paragraph = document.querySelector(".number-container");
+const numberContainer = document.querySelector(".number-container");
 const button = document.querySelector("#btn");
 
 button.addEventListener("click", () => {
-  clickMe();
+  button.textContent === "generate" ? generateNumber() : clearElement();
 });
 
-function clickMe() {
+function generateNumber() {
   const str = document.querySelector("#input").value;
 
   if (!str.includes(0)) {
     const sNumber = str.toString();
 
     const temp = [];
-    const res = [];
 
     for (let i = 0; i < sNumber.length; i++) {
       temp.push(+sNumber.charAt(i));
     }
+
     let n = sNumber.length - 1;
     for (const number of temp) {
-      res.push(number * 10 ** n);
+      numberContainer.innerHTML += `<p>${number * 10 ** n}</p>`;
       n--;
-    }
 
-    paragraph.innerHTML = res;
+      numberContainer.hasChildNodes
+        ? (button.innerHTML = "clear")
+        : (button.innerHTML = "generate");
+    }
   } else {
     alert("jangan  masukkan angka 0");
   }
+}
+
+function clearElement() {
+  document.location.reload();
 }
