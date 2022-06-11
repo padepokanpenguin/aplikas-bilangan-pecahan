@@ -22,7 +22,7 @@ function generateNumber() {
       numberContainer.innerHTML += `<p>${number * 10 ** n}</p>`;
       n--;
 
-      numberContainer.hasChildNodes
+      numberContainer.hasChildNodes && numberContainer.childNodes.length > 0
         ? (button.innerHTML = "clear")
         : (button.innerHTML = "generate");
     }
@@ -33,4 +33,5 @@ function generateNumber() {
 
 function clearElement() {
   document.location.reload();
+  // numberContainer.innerHTML = null;
 }
